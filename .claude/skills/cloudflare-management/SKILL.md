@@ -1,6 +1,6 @@
 ---
 name: cloudflare-management
-description: Manage Cloudflare DNS and security settings for ai-cv-evaluator.web.id
+description: Use when a DNS record, a proxy setting or a security setting must change on ai-cv-evaluator.web.id, or when you must read the current one. Talks to the Cloudflare API.
 ---
 
 # Cloudflare Management
@@ -93,7 +93,12 @@ curl -sS https://ai-cv-evaluator.web.id/cdn-cgi/trace
 
 ## Gotchas
 
-- **Token permissions**: The token in `.env.production` needs Zone:DNS:Edit AND Zone:Settings:Edit for full management. If security settings return 9109 Unauthorized, the token needs to be updated in Cloudflare dashboard.
-- **Super Bot Fight Mode**: Only configurable via Cloudflare dashboard (not API) on free plans. If JS challenges are injected, check Security > Bots in dashboard.
-- **Proxied records**: All A records should be proxied=true for Cloudflare protection. Direct origin IP is 43.157.225.155.
-- **Subdomains**: ai-cv-evaluator.web.id, auth.ai-cv-evaluator.web.id, dashboard.ai-cv-evaluator.web.id, keycloak.ai-cv-evaluator.web.id
+- **Token permissions**: The token in `.env.production` needs Zone:DNS:Edit AND Zone:Settings:Edit
+  for full management. If security settings return 9109 Unauthorized, the token needs to be
+  updated in Cloudflare dashboard.
+- **Super Bot Fight Mode**: Only configurable via Cloudflare dashboard (not API) on free plans. If
+  JS challenges are injected, check Security > Bots in dashboard.
+- **Proxied records**: All A records should be proxied=true for Cloudflare protection. Direct
+  origin IP is 43.157.225.155.
+- **Subdomains**: ai-cv-evaluator.web.id, auth.ai-cv-evaluator.web.id,
+  dashboard.ai-cv-evaluator.web.id, keycloak.ai-cv-evaluator.web.id
